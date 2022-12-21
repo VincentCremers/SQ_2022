@@ -56,7 +56,7 @@ public class Infobord extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        String selector = this.halte + "_" + this.richting;
+        String selector = "(HALTE= '" + this.halte + "') AND (RICHTING= '" + this.richting + "')";
         thread(new ListenerStarter(selector, this, berichten), false);
 
         GridPane pane = new GridPane();

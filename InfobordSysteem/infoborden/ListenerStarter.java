@@ -35,9 +35,9 @@ public class ListenerStarter implements Runnable, ExceptionListener {
 
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-            Destination destination = session.createTopic(selector);
+            Destination destination = session.createTopic("INFOBORD-TOPIC");
 
-            MessageConsumer consumer = session.createConsumer(destination);
+            MessageConsumer consumer = session.createConsumer(destination, selector);
             System.out.println("Produce, wait, consume" + selector);
 
             consumer.setMessageListener(new QueueListener(selector, this.infobord, this.berichten));
